@@ -1,0 +1,23 @@
+<!-- blog/templates/blog/post_form.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h2>Create a new Post</h2>
+  
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
+    
+    <button type="submit">Create Post</button>
+  </form>
+
+  {% if form.errors %}
+    <ul class="errors">
+      {% for field in form %}
+        {% for error in field.errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

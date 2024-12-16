@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure--*gjcuxy)+3i+mo5g+=%!kp&xtcxo#n$jpgia&280s6up91j_1
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-yazdantaher-djangoblogw-7abt1npwt7m.ws.codeinstitute-ide.net']
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-yazdantaher-djangoblogw-7abt1npwt7m.ws.codeinstitute-ide.net',  # Add your origin here
+]
 
 
 # Application definition
@@ -38,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-
+    'frontend',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / "frontend/static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
