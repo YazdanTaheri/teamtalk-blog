@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', lambda request: render(request, 'frontend/index.html')),  # Root URL
     path('blog/', include('blog.urls')),  # Blog URLs under '/blog/'
+    path("summernote/", include("django_summernote.urls")),
 ]
