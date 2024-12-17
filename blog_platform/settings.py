@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure--*gjcuxy)+3i+mo5g+=%!kp&xtcxo#n$jpgia&280s6up91j_1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-yazdantaher-djangoblogw-7abt1npwt7m.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = ['8000-yazdantaher-djangoblogw-7abt1npwt7m.ws.codeinstitute-ide.net','.herokuapp.com']
+
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-yazdantaher-djangoblogw-7abt1npwt7m.ws.codeinstitute-ide.net',  # Add your origin here
 ]
