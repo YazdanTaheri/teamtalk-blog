@@ -18,8 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import render
+from about import views as about_views
 
 urlpatterns = [
+    path('about/', about_views.about_me, name='about'),
+    path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('', lambda request: render(request, 'frontend/index.html')),  # Root URL
     path('blog/', include('blog.urls')),  # Blog URLs under '/blog/'
