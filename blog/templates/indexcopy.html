@@ -1,11 +1,25 @@
-{% extends "base.html" %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %}
+{% load static %} 
+<!--Blog page-->
 
-<!-- index.html content starts here -->
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+    <header>
+        <h1>Welcome to My Blog</h1>
+    </header>
+    <main>
+        <h2>Sample Blog Post</h2>
+        <p>This is a sample blog post.</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Blog</p>
+    </footer>
+    <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-
         <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
@@ -28,19 +42,17 @@
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
-
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">{{ post.created_on}}
                             </p>
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:6 %}
             </div>
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
@@ -48,7 +60,9 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+            </li>
             {% endif %}
             {% if page_obj.has_next %}
             <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
@@ -57,7 +71,10 @@
     </nav>
     {% endif %}
 </div>
-
+{% block copyright %}
+Copyright 2024 Crystal Johnson
+{% endblock copyright %}
 <!-- index.html content ends here -->
-{% endblock %}
-{% block copyright %}Copyright 2023 Matt Rudge{% endblock %}
+    {% endblock content %}
+
+
