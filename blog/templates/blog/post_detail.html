@@ -17,7 +17,7 @@
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
                 {% else %}
-                <img src="{{ post.featured_image.url }}" class="scale" alt="{{ post.title }}">
+                <img src="" class="scale" alt="{{ post.title }}">
                 {% endif %}
             </div>
         </div>
@@ -81,7 +81,7 @@
                 <h3>Leave a comment:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
+                    {{ comment_form }}
                     {% csrf_token %}
                     <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
                 </form>
