@@ -2,9 +2,13 @@
 
 
 body {
+    background-image: url(/static/images/indexpic.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; 
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #f7f7f7;
     color: #333333;
 }
 

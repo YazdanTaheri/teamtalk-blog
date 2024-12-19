@@ -18,7 +18,7 @@
                                 <img class="card-img-top" src="{% static 'images/default.jpg' %}"
                                     alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src="" alt="{{ post.title }}">
+                                <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
@@ -60,4 +60,4 @@
 
 <!-- index.html content ends here -->
 {% endblock %}
-{% block copyright %}Copyright 2023 Matt Rudge{% endblock %}
+{% block copyright %}Copyright 2025 TeamTalk{% endblock %}

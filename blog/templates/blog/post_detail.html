@@ -11,13 +11,13 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="post-subtitle">{{ post.author_id }} | {{ post.created_at }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="{% static 'images/image1.jpg' %}" class="scale" alt="placeholder">
+                <img src="{% static 'images/image1.jpg' %}" width="75%" class="scale" alt="placeholder">
                 {% else %}
-                <img src="" class="scale" alt="{{ post.title }}">
+                <img src="{{ post.featured_image.url }}" width="75%" class="scale" alt="{{ post.title }}">
                 {% endif %}
             </div>
         </div>
