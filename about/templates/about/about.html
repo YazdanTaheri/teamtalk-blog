@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-12 col-md-4 text-center">
             {% if "placeholder" in about.profile_image.url %}
-            <img src="{% static 'images/nobody.jpg' %}" width="75%" class="profile-image" alt="{{ about.title }}">
+            <img src="{% static 'images/image1' %}" width="75%" class="profile-image" alt="{{ about.title }}">
             {% else %}
             <img src="{{ about.profile_image.url }}" width="75%" class="profile-image" alt="{{ about.title }}">
             {% endif %}
@@ -17,6 +17,6 @@
             {{ about.content | safe }}
         </div>
     </div>
-    <h1 class="roboto-thin">IDIOTTTTT</h1>
+    <h1 class="roboto-thin"></h1>
 </div>
 {% endblock content %}
