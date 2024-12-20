@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url(/static/images/indexpic.jpg);
+    background-image: url(/static/images/TotFundal2.jpg); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
@@ -46,3 +46,4 @@ h1, h2 {
         font-size: 1.5rem;
     }
 }
+
