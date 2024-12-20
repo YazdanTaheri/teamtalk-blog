@@ -23,8 +23,8 @@ from about import views as about_views
 urlpatterns = [
     path('about/', about_views.about_me, name='about'),
     path("accounts/", include("allauth.urls")),
+    path('blog/', include("blog.urls"), name='blog-urls'),  # Blog URLs under '/blog/'
     path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),  # Blog URLs under '/blog/'
     path('', lambda request: render(request, 'frontend/index.html'), name='home'),  # Root URL
     path("summernote/", include("django_summernote.urls")),
 ]
