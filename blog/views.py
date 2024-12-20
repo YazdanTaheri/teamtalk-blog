@@ -100,7 +100,7 @@ def comment_edit(request, slug, comment_id):
     """
     if request.method == "POST":
 
-        queryset = Post.objects.filter(status=1)
+        queryset = Post.objects.filter(status="published")
         post = get_object_or_404(queryset, slug=slug)
         comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
@@ -121,7 +121,7 @@ def comment_delete(request, slug, comment_id):
     """
     Display one comment to Delete.
     """
-    queryset = Post.objects.filter(status=1)
+    queryset = Post.objects.filter(status="published")
     post = get_object_or_404(queryset, slug=slug)
     comment = get_object_or_404(Comment, pk=comment_id)
 
