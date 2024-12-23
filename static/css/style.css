@@ -28,7 +28,7 @@ main {
 }
 h1, h2 {
     margin: 0.5rem 0;
-    font-family: Roboto;
+    font-family: "Roboto";
 }
 
 .roboto-thin {
