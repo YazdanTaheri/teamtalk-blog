@@ -2,6 +2,12 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 from django.contrib.auth.models import User
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True, null=True)
+
+    def _str_(self):
+        return self.name   
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
@@ -11,6 +17,8 @@ class Post(models.Model):
     )
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
+    category = models.ForeignKey(
+        Category, on_delete=models.CASCADE, related_name='posts', default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(
@@ -38,4 +46,4 @@ class Comment(models.Model):
     class Meta:
         ordering = ["created_on"]
     def __str__(self):
-        return f"Comment {self.body} by {self.author}"
+        return f"Comment {self.body} by {self.author}"            
