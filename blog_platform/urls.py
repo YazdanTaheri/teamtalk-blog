@@ -25,6 +25,6 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('blog/', include("blog.urls"), name='blog-urls'),  # Blog URLs under '/blog/'
     path('admin/', admin.site.urls),
-    path('', lambda request: render(request, 'frontend/index.html'), name='home'),  # Root URL
+    path('',include("frontend.urls")),  # Root URL
     path("summernote/", include("django_summernote.urls")),
 ]

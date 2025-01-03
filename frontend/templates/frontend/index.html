@@ -17,7 +17,7 @@
 {% for category in categories %}
 <h3 class="card-title">{{ category.name }}</h3>
 <ul>
-    <li><a href="{% url 'category_list' category.name %}">{{ category.name }}</a></li>
+    <li>{{ category.name }}</li>
 </ul>
 <p class="card-text">{{ category.description }}</p>
 
