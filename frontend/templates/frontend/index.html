@@ -1,16 +1,25 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {%block content%}
 <!--the home page-->
 
-    <h1><strong>TeamTalk</strong></h1> 
-    <h2>A positive space free from negativity and judgment.</h2>
-   
-    <h2>Designed to foster meaningful connections and constructive discussions.</h2>
-    
-    <h2>Built with a commitment to making everyone feel included, respected, and valued.</h2>
-    <br>
-    
-    <h5><strong><a href="https://8000-yazdantaher-djangoblogw-zcxhutlg9rc.ws.codeinstitute-ide.net/blog/">View our posts!</a></strong></h5>
-    <img src="static/images/imggg.jpg" alt="TeamTalk Image" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+<h1><strong>TeamTalk</strong></h1>
+<h2>A positive space free from negativity and judgment.</h2>
+
+<h2>Designed to foster meaningful connections and constructive discussions.</h2>
+
+<h2>Built with a commitment to making everyone feel included, respected, and valued.</h2>
+<br>
+
+<h5><strong><a href="https://8000-yazdantaher-djangoblogw-zcxhutlg9rc.ws.codeinstitute-ide.net/blog/">View our
+            posts!</a></strong></h5>
+<img src="static/images/imggg.jpg" alt="TeamTalk Image" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+{% for category in categories %}
+<h3 class="card-title">{{ category.name }}</h3>
+<ul>
+    <li><a href="{% url 'category_list' category.name %}">{{ category.name }}</a></li>
+</ul>
+<p class="card-text">{{ category.description }}</p>
+
+{% endfor %}
 {%endblock%}

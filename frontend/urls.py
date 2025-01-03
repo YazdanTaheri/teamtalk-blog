@@ -19,12 +19,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from frontend import views
 
 urlpatterns = [
     path('', home, name='home'),
     path("about/", include("about.urls"), name="about-urls"),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
+    path('category/<name:category_name>/', views.category_list, name='category_posts'),
     path('summernote/', include('django_summernote.urls')),
     path('blog/', include("blog.urls"), name="blog-urls"),
 ]

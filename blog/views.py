@@ -60,6 +60,7 @@ def post_detail(request, slug):
     queryset = Post.objects.filter(status='published')
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
+    category = post.category
     comment_count = post.comments.filter(approved=True).count()
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -81,6 +82,7 @@ def post_detail(request, slug):
         {
             "post": post,
             "comments": comments,
+            'category': category,
             "comment_count": comment_count,
             "comment_form": comment_form
         },

@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from blog.models import Category
 
 def home(request):
     if request.method =="POST":
@@ -7,4 +8,13 @@ def home(request):
         return HttpResponse(request.method)
 
 
+def category_list(request):
+    """
+    A view to return the category list on the home page
+    """
+    categories = Category.objects.all()
 
+    context = {
+        'categories': categories,
+    }
+    return render(request, 'frontend/index.html', context)
