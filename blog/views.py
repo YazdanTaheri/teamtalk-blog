@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
+from .models import Post, Comment, Category
 from .forms import CommentForm
 
 # Display all posts
@@ -24,6 +24,43 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status='published')
     template_name = "blog/index.html"
     paginate_by = 6
+
+# Display all categories
+def category_list(request):
+    """
+    Display a list of all categories.
+
+    **Context**
+
+    ``categories``
+        All instances of :model:`blog.Category`.
+
+    **Template:**
+
+    :template:`blog/category_list.html`
+    """
+    categories = Category.objects.all()
+    return render(request, 'blog/category_list.html', {'categories': categories})
+
+# Display posts by category
+def posts_by_category(request, category_id):
+    """
+    Display all posts under a specific :model:`blog.Category`.
+
+    **Context**
+
+    ``category``
+        An instance of :model:`blog.Category`.
+    ``posts``
+        All posts linked to the category.
+
+    **Template:**
+
+    :template:`blog/posts_by_category.html`
+    """
+    category = get_object_or_404(Category, id=category_id)
+    posts = category.posts.filter(status='published')
+    return render(request, 'blog/posts_by_category.html', {'category': category, 'posts': posts})
 
 # Create a new post
 def post_create(request):

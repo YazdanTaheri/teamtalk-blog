@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Posts in {{ category.name }}</h1>
+<ul>
+    {% for post in posts %}
+        <li>
+            <strong>{{ post.title }}</strong> - {{ post.content }}
+        </li>
+    {% empty %}
+        <p>No posts found in this category.</p>
+    {% endfor %}
+</ul>
+<a href="{% url 'category_list' %}">Back to Categories</a>
+{% endblock %}
