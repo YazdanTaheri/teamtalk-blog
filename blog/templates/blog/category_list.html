@@ -6,7 +6,7 @@
     {% for category in categories %}
     <div style="text-align: center; margin: 20px; border: 1px solid orange; padding: 10px;">
         <h3>{{ category.name }}</h3>
-        <p>{{ category.description }}</p>
+        <p>{{ category.description | safe }}</p>
         <a href="{% url 'posts_by_category' category.id %}">View Posts in {{ category.name }}</a>
     </div>
     {% endfor %}

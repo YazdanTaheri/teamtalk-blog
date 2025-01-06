@@ -15,11 +15,10 @@
             posts!</a></strong></h5>
 <img src="static/images/imggg.jpg" alt="TeamTalk Image" style="max-width: 100%; height: auto; margin-bottom: 10px;">
 {% for category in categories %}
-<h3 class="card-title">{{ category.name }}</h3>
-<ul>
-    <li>{{ category.name }}</li>
-</ul>
-<p class="card-text">{{ category.description }}</p>
+<a href="{% url 'posts_by_category' category.id %}">
+    <h3 class="card-title">{{ category.name }}</h3>
+</a>
+<p class="card-text">{{ category.description | safe }}</p>
 
 {% endfor %}
 {%endblock%}
