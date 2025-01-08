@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.utils.html import strip_tags
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic
@@ -127,8 +128,11 @@ def edit_category(request, pk):
     # Render the form with the existing category data
     return render(request, 'blog/edit_category.html', {'category': category})
 
+# Helper function to check if the user is an admin
+def is_admin(user):
+    return user.is_superuser 
 
-# Delete a category
+@user_passes_test(is_admin)  # Restrict access to admins only
 def delete_category(request, pk):
     """
     Delete an existing :model:`blog.Category`.

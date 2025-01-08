@@ -18,7 +18,10 @@ class Post(models.Model):
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, related_name='posts', default=1)
+        Category,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True, related_name='posts', default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     status = models.CharField(
