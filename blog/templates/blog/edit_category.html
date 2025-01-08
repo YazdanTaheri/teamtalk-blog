@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Edit Category</h1>
+<form method="post">
+    {% csrf_token %}
+    <label for="name">Category Name:</label>
+    <input type="text" name="name" id="name" value="{{ category.name }}" required>
+    <br><br>
+    
+    <label for="description">Category Description:</label>
+    <textarea name="description" id="description" rows="5" required>{{ category.description }}</textarea>
+    <br><br>
+    
+    <button type="submit">Update Category</button>
+</form>
+<a href="{% url 'category_list' %}">Back to Categories</a>
+{% endblock %}
+

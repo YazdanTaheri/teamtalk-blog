@@ -23,6 +23,13 @@ header, footer {
     padding: 1rem;
     font-family: 'Lato', sans-serif;
 }
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
 main {
     padding: 2rem;
     text-align: center;

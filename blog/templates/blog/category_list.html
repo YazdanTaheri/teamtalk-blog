@@ -8,7 +8,19 @@
         <h3>{{ category.name }}</h3>
         <p>{{ category.description | safe }}</p>
         <a href="{% url 'posts_by_category' category.id %}">View Posts in {{ category.name }}</a>
+        
+        <!-- Edit Form -->
+        <form method="get" action="{% url 'edit_category' category.id %}" style="display: inline;">
+            <button type="submit" class="btn btn-edit">Edit</button>
+        </form>
+
+        <!-- Delete Form -->
+        <form method="post" action="{% url 'delete_category' category.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-delete">Delete</button>
+        </form>
     </div>
     {% endfor %}
 </div>
+<a href="{% url 'add_category' %}" style="display: block; margin-top: 20px;">Add New Category</a>
 {% endblock %}

@@ -34,9 +34,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['8000-yazdantaher-djangoblogw-zcxhutlg9rc.ws.codeinstitute-ide.net','.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.herokuapp.com",
-    "https://8000-yazdantaher-djangoblogw-zcxhutlg9rc.ws.codeinstitute-ide.net"  # Add your origin here
-]
+    "https://*.codeinstitute-ide.net", "https://*.herokuapp.com"]
 
 
 # Application definition

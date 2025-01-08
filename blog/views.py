@@ -1,9 +1,11 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.utils.html import strip_tags
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Category
 from .forms import CommentForm
+
 
 # Display all posts
 class PostList(generic.ListView):
@@ -61,6 +63,86 @@ def posts_by_category(request, category_id):
     category = get_object_or_404(Category, id=category_id)
     posts = category.posts.filter(status='published')
     return render(request, 'blog/posts_by_category.html', {'category': category, 'posts': posts})
+
+# Add a new category
+def add_category(request):
+    """
+    Add a new :model:`blog.Category`.
+
+    **POST Data**
+
+    ``name``
+        The name of the new category.
+
+    **Template:**
+
+    :template:`blog/add_category.html`
+    """
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        if name:
+            Category.objects.create(name=name)
+            messages.success(request, "Category added successfully!")
+            return redirect('category_list')
+        else:
+            messages.error(request, "Category name cannot be empty.")
+    return render(request, 'blog/add_category.html')
+
+
+# Edit an existing category
+def edit_category(request, pk):
+    """
+    Edit an existing :model:`blog.Category`.
+
+    **POST Data**
+
+    ``name``
+        The updated name of the category.
+
+    **Template:**
+
+    :template:`blog/edit_category.html`
+    """
+    category = get_object_or_404(Category, pk=pk)
+    
+    if request.method == 'POST':
+        name = request.POST.get('name', '').strip()  # Retrieve and trim the name
+        description = request.POST.get('description', '').strip()  # Retrieve and trim the description
+        
+        # Validate 'name' and 'description' fields
+        if not name:
+            messages.error(request, "Category name cannot be empty.")
+        elif not description:
+            messages.error(request, "Category description cannot be empty.")
+        else:
+            # Update fields and sanitize description
+            category.name = name
+            category.description = strip_tags(description)  # Remove HTML tags
+            category.save()
+            
+            # Success message and redirect
+            messages.success(request, "Category updated successfully!")
+            return redirect('category_list')
+    
+    # Render the form with the existing category data
+    return render(request, 'blog/edit_category.html', {'category': category})
+
+
+# Delete a category
+def delete_category(request, pk):
+    """
+    Delete an existing :model:`blog.Category`.
+
+    **Template:**
+
+    :template:`blog/delete_category.html`
+    """
+    category = get_object_or_404(Category, pk=pk)
+    if request.method == 'POST':
+        category.delete()
+        messages.success(request, "Category deleted successfully!")
+        return redirect('category_list')
+    return render(request, 'blog/delete_category.html', {'category': category})    
 
 # Create a new post
 def post_create(request):
