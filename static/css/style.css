@@ -30,6 +30,10 @@ footer {
   width: 100%;
 }
 
+#signup_form > ul {
+    list-style-type: none;
+}
+
 main {
     padding: 2rem;
     text-align: center;
