@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 
-    <header>
-        <h1>Welcome to My Blog</h1>
-    </header>
-    <main>
-        <h2>Sample Blog Post</h2>
-        <p>This is a sample blog post.</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 My Blog</p>
-    </footer>
-    <!-- index.html content starts here -->
+<header>
+    <h1 style="text-align: center; color: orange; font-family: Arial, sans-serif;">Welcome to My Blog</h1>
+</header>
+<main>
+    <h2 style="color: orange; font-family: Arial, sans-serif;">Sample Blog Post</h2>
+    <p style="font-family: Arial, sans-serif;">This is a sample blog post.</p>
+</main>
+<footer style="text-align: center; background-color: orange; color: white; padding: 10px; font-family: Arial, sans-serif;">
+    <p>&copy; 2024 My Blog</p>
+</footer>
+
 <div class="container-fluid">
     <div class="row">
         <!-- Blog Entries Column -->
@@ -25,26 +25,24 @@
             <div class="row">
                 {% for post in post_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="image-container">
+                    <div class="card mb-4" style="border: 1px solid orange; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                        <div class="card-body" style="background: linear-gradient(to bottom, orange, white); padding: 20px; text-align: center; font-family: Arial, sans-serif;">
+                            <div class="image-container" style="position: relative;">
                                 {% if "placeholder" in post.featured_image.url %}
-                                <img class="card-img-top" src="{% static 'images/image1.jpg' %}"
-                                    alt="placeholder image">
+                                <img class="card-img-top" src="{% static 'images/image1.jpg' %}" alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ post.author }}</p>
+                                <div class="image-flash" style="position: absolute; bottom: 10px; left: 10px; background-color: rgba(255, 165, 0, 0.7); color: white; padding: 5px; border-radius: 3px;">
+                                    <p class="author" style="font-weight: bold;">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link">
-                                <h2 class="card-title">{{ post.title }}</h2>
-                                <p class="card-text">{{ post.excerpt }}</p>
+                            <a href="{% url 'post_detail' post.slug %}" class="post-link" style="text-decoration: none; color: orange; font-weight: bold;">
+                                <h2 class="card-title" style="color: black; margin-bottom: 10px;">{{ post.title }}</h2>
+                                <p class="card-text" style="color: #333; margin-bottom: 15px;">{{ post.excerpt }}</p>
                             </a>
                             <hr>
-                            <p class="card-text text-muted h6">{{ post.created_on}}
-                            </p>
+                            <p class="card-text text-muted h6">{{ post.created_on }}</p>
                         </div>
                     </div>
                 </div>
@@ -61,11 +59,11 @@
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
             <li>
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link" style="color: orange; text-decoration: none;">&laquo; PREV</a>
             </li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" style="color: orange; text-decoration: none;"> NEXT &raquo;</a></li>
             {% endif %}
         </ul>
     </nav>
@@ -75,6 +73,4 @@
 
 {% endblock copyright %}
 <!-- index.html content ends here -->
-    {% endblock content %}
-
-
+{% endblock content %}
