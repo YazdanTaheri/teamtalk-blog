@@ -6,6 +6,8 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Post, Comment, Category
 from .forms import CommentForm
+from .forms import CategoryForm
+
 
 
 # Display all posts
@@ -79,15 +81,22 @@ def add_category(request):
 
     :template:`blog/add_category.html`
     """
-    if request.method == 'POST':
-        name = request.POST.get('name')
-        if name:
-            Category.objects.create(name=name)
-            messages.success(request, "Category added successfully!")
-            return redirect('category_list')
-        else:
-            messages.error(request, "Category name cannot be empty.")
-    return render(request, 'blog/add_category.html')
+
+    if not request.user.is_authenticated:
+        messages.error(request, "You need to sign in to add a category.")
+        return redirect('login')
+
+    if request.method == "POST":
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            category = form.save(commit=False)  # Don't save to the database yet
+            category.author = request.user     # Assign the logged-in user as the author
+            category.save()                     # Save the category to the database
+            messages.success(request, "Category added successfully!")  # Add success message                  
+            return redirect('categories')      # Redirect to the categories page
+    else:
+        form = CategoryForm()
+    return render(request, 'blog/add_category.html', {'form': form})
 
 
 # Edit an existing category

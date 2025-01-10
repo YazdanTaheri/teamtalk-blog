@@ -1,24 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
-{%block content%}
-<!--the home page-->
+{% block content %}
+<!-- the home page -->
 
-<h1><strong>TeamTalk</strong></h1>
-<h2>A positive space free from negativity and judgment.</h2>
+<div class="home-container" style="text-align: center; padding: 20px; font-family: Arial, sans-serif;">
+    <!-- Title Section -->
+    <h1 style="color: orange; font-size: 3rem; font-weight: bold; margin-bottom: 20px;">TeamTalk</h1>
+    <h2 style="color: black; margin: 10px 0; font-size: 1.5rem;">
+        A positive space free from negativity and judgment.
+    </h2>
+    <h2 style="color: black; margin: 10px 0; font-size: 1.5rem;">
+        Designed to foster meaningful connections and constructive discussions.
+    </h2>
+    <h2 style="color: black; margin: 10px 0; font-size: 1.5rem;">
+        Built with a commitment to making everyone feel included, respected, and valued.
+    </h2>
+    <br>
 
-<h2>Designed to foster meaningful connections and constructive discussions.</h2>
+    <!-- Posts Link -->
+    <h5>
+        <a href="{% url 'posts' %}" style="font-size: 1.2rem; color: white; background-color: orange; 
+        padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;">
+            View our posts!
+        </a>
+    </h5>
 
-<h2>Built with a commitment to making everyone feel included, respected, and valued.</h2>
-<br>
+    <!-- Image Section -->
+    <div style="margin: 20px 0;">
+        <img src="{% static 'images/imggg.jpg' %}" alt="TeamTalk Image" 
+        style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    </div>
 
-<h5><strong><a href="{% url 'posts' %}">View our
-            posts!</a></strong></h5>
-<img src="static/images/imggg.jpg" alt="TeamTalk Image" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-{% for category in categories %}
-<a href="{% url 'posts_by_category' category.id %}">
-    <h3 class="card-title">{{ category.name }}</h3>
-</a>
-<p class="card-text">{{ category.description | safe }}</p>
+    <!-- Categories Button -->
+    <div style="margin-top: 30px;">
+        <a href="{% url 'categories' %}" 
+        style="font-size: 1.2rem; color: white; background-color: orange; 
+        padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block;">
+            Explore All Categories
+        </a>
+    </div>
+</div>
 
-{% endfor %}
-{%endblock%}
+{% endblock %}
