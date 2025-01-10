@@ -132,3 +132,8 @@ h1, h2 {
 .author {
     font-weight: bold;
 }
+
+.card-image-top {
+ width: 200px;
+ height: 200px;
+}
