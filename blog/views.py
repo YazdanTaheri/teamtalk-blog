@@ -154,7 +154,7 @@ def delete_category(request, pk):
     if request.method == 'POST':
         category.delete()
         messages.success(request, "Category deleted successfully!")
-        return redirect('category_list')
+        return redirect('categories')
     return render(request, 'blog/delete_category.html', {'category': category})    
 
 # Create a new post
