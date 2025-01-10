@@ -12,7 +12,7 @@
         {% if user.is_authenticated and user.is_superuser or user.is_authenticated and category.author == user %}
         <!-- Edit Form -->
         <form method="get" action="{% url 'edit_category' category.id %}" style="display: inline;">
-            <button type="submit" class="btn btn-edit">Edit</button>
+            <button type="submit" onclick="return confirm('Are you sure you want to edit this category?')" class="btn btn-edit">Edit</button>
         </form>
 
         <!-- Delete Form -->
