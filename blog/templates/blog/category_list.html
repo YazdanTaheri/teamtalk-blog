@@ -14,14 +14,22 @@
             {% if user.is_authenticated and user.is_superuser or user.is_authenticated and category.author == user %}
             <!-- Edit Form -->
             <form method="get" action="{% url 'edit_category' category.id %}" style="display: inline;">
-                <button type="submit" onclick="return confirm('Are you sure you want to edit this category?')" style="background-color: black; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-right: 5px;">
+                <button type="submit" 
+                        onclick="return confirm('Are you sure you want to edit this category?')" 
+                        style="background-color: black; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-right: 5px;"
+                        onmouseover="this.style.backgroundColor='darkorange';"
+                        onmouseout="this.style.backgroundColor='black';">
                     Edit
                 </button>
             </form>
             <!-- Delete Form -->
             <form method="post" action="{% url 'delete_category' category.id %}" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit" onclick="return confirm('Are you sure you want to delete this category?')" style="background-color: orange; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">
+                <button type="submit" 
+                        onclick="return confirm('Are you sure you want to delete this category?')" 
+                        style="background-color: orange; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;"
+                        onmouseover="this.style.backgroundColor='darkorange';"
+                        onmouseout="this.style.backgroundColor='orange';">
                     Delete
                 </button>
             </form>
@@ -34,7 +42,9 @@
 <!-- Add New Category link outside the loop -->
 {% if user.is_authenticated %}
 <div style="text-align: center; margin-top: 20px;">
-    <a href="{% url 'add_category' %}" style="display: inline-block; padding: 10px 20px; background-color: black; color: white; text-decoration: none; font-weight: bold; border-radius: 3px;">
+    <a href="{% url 'add_category' %}" style="display: inline-block; padding: 10px 20px; background-color: black; color: white; text-decoration: none; font-weight: bold; border-radius: 3px;"
+       onmouseover="this.style.backgroundColor='darkorange';"
+       onmouseout="this.style.backgroundColor='black';">
         Add New Category
     </a>
 </div>

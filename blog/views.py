@@ -9,19 +9,18 @@ from .forms import CommentForm
 from .forms import CategoryForm
 
 
-
 # Display all posts
 class PostList(generic.ListView):
     """
     Returns all published posts in :model:`blog.Post`
-    and displays them in a page of six posts. 
+    and displays them in a page of six posts.
     **Context**
 
     ``queryset``
         All published instances of :model:`blog.Post`
     ``paginate_by``
         Number of posts per page.
-        
+
     **Template:**
 
     :template:`blog/index.html`
@@ -29,6 +28,7 @@ class PostList(generic.ListView):
     queryset = Post.objects.filter(status='published')
     template_name = "blog/index.html"
     paginate_by = 6
+
 
 # Display all categories
 def category_list(request):
@@ -45,7 +45,9 @@ def category_list(request):
     :template:`blog/category_list.html`
     """
     categories = Category.objects.all()
-    return render(request, 'blog/category_list.html', {'categories': categories})
+    return render(request,
+                  'blog/category_list.html', {'categories': categories})
+
 
 # Display posts by category
 def posts_by_category(request, category_id):
@@ -65,7 +67,10 @@ def posts_by_category(request, category_id):
     """
     category = get_object_or_404(Category, id=category_id)
     posts = category.posts.filter(status='published')
-    return render(request, 'blog/posts_by_category.html', {'category': category, 'posts': posts})
+    return render(request,
+                  'blog/posts_by_category.html',
+                  {'category': category, 'posts': posts})
+
 
 # Add a new category
 def add_category(request):
@@ -89,11 +94,12 @@ def add_category(request):
     if request.method == "POST":
         form = CategoryForm(request.POST)
         if form.is_valid():
-            category = form.save(commit=False)  # Don't save to the database yet
-            category.author = request.user     # Assign the logged-in user as the author
-            category.save()                     # Save the category to the database
-            messages.success(request, "Category added successfully!")  # Add success message                  
-            return redirect('categories')      # Redirect to the categories page
+            category = form.save(commit=False)
+
+            category.author = request.user
+            category.save()
+            messages.success(request, "Category added successfully!")
+            return redirect('categories')     # Redirect to the categories page
     else:
         form = CategoryForm()
     return render(request, 'blog/add_category.html', {'form': form})
@@ -114,11 +120,11 @@ def edit_category(request, pk):
     :template:`blog/edit_category.html`
     """
     category = get_object_or_404(Category, pk=pk)
-    
+
     if request.method == 'POST':
-        name = request.POST.get('name', '').strip()  # Retrieve and trim the name
-        description = request.POST.get('description', '').strip()  # Retrieve and trim the description
-        
+        name = request.POST.get('name', '').strip()
+        description = request.POST.get('description', '').strip()
+
         # Validate 'name' and 'description' fields
         if not name:
             messages.error(request, "Category name cannot be empty.")
@@ -129,17 +135,18 @@ def edit_category(request, pk):
             category.name = name
             category.description = strip_tags(description)  # Remove HTML tags
             category.save()
-            
+
             # Success message and redirect
             messages.success(request, "Category updated successfully!")
             return redirect('categories')
-    
+
     # Render the form with the existing category data
     return render(request, 'blog/edit_category.html', {'category': category})
 
+
 # Helper function to check if the user is an admin
 def is_admin(user):
-    return user.is_superuser 
+    return user.is_superuser
 
 
 def delete_category(request, pk):
@@ -155,7 +162,8 @@ def delete_category(request, pk):
         category.delete()
         messages.success(request, "Category deleted successfully!")
         return redirect('categories')
-    return render(request, 'blog/delete_category.html', {'category': category})    
+    return render(request, 'blog/delete_category.html', {'category': category})
+
 
 # Create a new post
 def post_create(request):
@@ -163,14 +171,16 @@ def post_create(request):
         form = PostForm(request.POST)
         if form.is_valid():
             form.save()  # Save the new post to the database
-            return redirect('index.html')  # Redirect to the list of posts after saving
+            return redirect('index.html')
     else:
         form = PostForm()  # If it's a GET request, show an empty form
 
     return render(request, 'blog/index.html', {'form': form})
 
+
 # View a single post
 def post_detail(request, slug):
+
     """
     Display an individual :model:`blog.Post`.
 
@@ -205,7 +215,7 @@ def post_detail(request, slug):
                 request, messages.SUCCESS,
                 'Comment submitted and awaiting approval'
             )
-    
+
     comment_form = CommentForm()
 
     return render(
@@ -219,6 +229,7 @@ def post_detail(request, slug):
             "comment_form": comment_form
         },
     )
+
 
 def comment_edit(request, slug, comment_id):
     """
@@ -246,7 +257,8 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
@@ -263,6 +275,7 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))

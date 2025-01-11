@@ -5,18 +5,52 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row">
+        <!-- Profile Image Section -->
         <div class="col-12 col-md-4 text-center">
             {% if "placeholder" in about.profile_image.url %}
-            <img src="{% static 'images/image1' %}" width="100%" class="profile-image" alt="{{ about.title }}">
+            <img src="{% static 'images/image1' %}" 
+                 style="border-radius: 50%; border: 3px solid orange; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);" 
+                 width="100%" 
+                 class="profile-image" 
+                 alt="{{ about.title }}">
             {% else %}
-            <img src="{{ about.profile_image.url }}" width="100%" class="profile-image" alt="{{ about.title }}">
+            <img src="{{ about.profile_image.url }}" 
+                 style="border-radius: 50%; border: 3px solid orange; box-shadow: 0px 4px 8px rgba(0,0,0,0.2);" 
+                 width="100%" 
+                 class="profile-image" 
+                 alt="{{ about.title }}">
             {% endif %}
         </div>
+        
+        <!-- Content Section -->
         <div class="col-12 col-md-8">
-            <h2 class="roboto-thin">{{ about.title }}</h2>
-            {{ about.content | safe }}
+            <h2 class="roboto-thin" 
+                style="color: orange; font-size: 28px; font-weight: bold; margin-bottom: 20px; font-family: Arial, sans-serif;">
+                {{ about.title }}
+            </h2>
+            <div style="font-family: Arial, sans-serif; font-size: 16px; color: #333; line-height: 1.8; text-align: justify;">
+                TeamTalk is a vibrant and welcoming online platform designed to bring people together based on shared interests and passions. Whether you're looking to connect with like-minded individuals, seek advice, or simply share your thoughts, TeamTalk provides a positive, happy, and peaceful environment for everyone.
+                <br><br>
+                <strong>Find Your Community:</strong> Discover people who share your interests and engage in meaningful conversations with those who truly understand your passions and goals.
+                <br><br>
+                <strong>Seek Advice & Share Opinions:</strong> Post questions, share insights, and learn from others' experiences. Whether you’re looking for tips or support, TeamTalk encourages constructive and respectful exchanges.
+                <br><br>
+                <strong>Engage Through Comments:</strong> Interact with the community by leaving comments and checking others’ feedback. See how many people agree with your ideas or explore diverse perspectives to broaden your understanding.
+            </div>
+            
+            <!-- View Categories Button -->
+            <div style="margin-top: 20px;">
+                <a href="{% url 'categories' %}" 
+                   style="display: inline-block; padding: 10px 20px; background-color: orange; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+                    View Categories
+                </a>
+            </div>
         </div>
     </div>
-    <h1 class="roboto-thin"></h1>
+    
+    <!-- Optional Footer Section -->
+    <h1 class="roboto-thin" style="text-align: center; color: orange; font-size: 24px; margin-top: 40px; font-family: Arial, sans-serif;">
+        About Our Blog
+    </h1>
 </div>
 {% endblock content %}

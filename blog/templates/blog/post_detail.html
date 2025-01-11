@@ -1,5 +1,4 @@
-
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
 
@@ -67,8 +66,21 @@
                     <p class="approval">This comment is awaiting approval</p>
                     {% endif %}
                     {% if user.is_authenticated and comment.author == user %}
-                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}">Delete</button>
-                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}">Edit</button>
+                    <button class="btn btn-delete" data-comment_id="{{ comment.id }}"
+                        style="background-color: orange; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;"
+                        onmouseover="this.style.backgroundColor='darkorange';"
+                        onmouseout="this.style.backgroundColor='orange';">
+                        Delete
+                    </button>
+
+                    <button class="btn btn-edit" data-comment_id="{{ comment.id }}"
+                        style="background-color: black; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;"
+                        onmouseover="this.style.backgroundColor='darkorange';"
+                        onmouseout="this.style.backgroundColor='black';">
+                        Edit
+                    </button>
+
+
                     {% endif %}
                 </div>
                 <!-- Our for loop ends here -->
@@ -83,7 +95,13 @@
                 <form id="commentForm" method="post" style="margin-top: 1.3em;">
                     {{ comment_form }}
                     {% csrf_token %}
-                    <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    <button id="submitButton" type="submit"
+                        style="background-color: orange; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;"
+                        onmouseover="this.style.backgroundColor='darkorange';"
+                        onmouseout="this.style.backgroundColor='orange';">
+                        Submit
+                    </button>
+
                 </form>
                 {% else %}
                 <p>

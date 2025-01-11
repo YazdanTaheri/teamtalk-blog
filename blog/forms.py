@@ -1,12 +1,13 @@
 from django import forms
-from .models import Post, Comment, Category # Import your Post model
+from .models import Post, Comment, Category  # Import your Post model
+
 
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'content', 'status']
-    
-     # Optional: Add additional custom validations
+
+    # Optional: Add additional custom validations
     def clean_title(self):
         title = self.cleaned_data.get('title')
         if len(title) < 5:
@@ -23,4 +24,4 @@ class CommentForm(forms.ModelForm):
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
-        fields = ['name', 'description']        
+        fields = ['name', 'description']
