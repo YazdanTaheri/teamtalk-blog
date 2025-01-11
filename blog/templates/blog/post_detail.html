@@ -25,7 +25,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
+        <div class="col card mb-4 mt-3 left top">
             <div class="card-body">
                 <!-- The post content goes inside the card-text. -->
                 <!-- Use the | safe filter inside the template tags -->
@@ -46,7 +46,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-8 card mb-4 mt-3 ">
+        <div class="col-md-8 card mb-4 mt-3" style="background: linear-gradient(to bottom, #FFA500, #FFFFFF);">
             <h3>Comments:</h3>
             <div class="card-body">
                 <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
@@ -79,15 +79,13 @@
                         onmouseout="this.style.backgroundColor='black';">
                         Edit
                     </button>
-
-
                     {% endif %}
                 </div>
                 <!-- Our for loop ends here -->
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4 mt-3 ">
+        <div class="col-md-4 card mb-4 mt-3" style="background: linear-gradient(to bottom, #FFA500, #FFFFFF);">
             <div class="card-body">
                 {% if user.is_authenticated %}
                 <h3>Leave a comment:</h3>
@@ -101,7 +99,6 @@
                         onmouseout="this.style.backgroundColor='orange';">
                         Submit
                     </button>
-
                 </form>
                 {% else %}
                 <p>
