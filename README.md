@@ -23,31 +23,177 @@
 8. [Credits](#credits)
 
 ## Design & Planning:
+TEAMTALK: Connecting Passions, Sharing Opinions
+
+TeamTalk is a dynamic blog platform where users can engage with posts and share their honest opinions. It's a vibrant community where people discover others’ interests and connect with those who share similar passions and activities.
+
+Whether you're an enthusiast seeking like-minded individuals or simply looking to explore new topics and make new friends, TeamTalk has something for everyone.
+
+Visit the live site here: *AICI E UN LINK*
+
+TeamTalk Blog was designed to cater to a diverse audience, offering a space for light and enjoyable content. Our aim is to evoke warmth and relaxation through the use of inviting colors and easy-to-read fonts. The design is intentionally clean and minimal, ensuring users can focus on the content and navigate the site effortlessly.
 
 ### User Stories
 Write your user stories in this section
 ### Wireframes
-Attach wireframes in this section
+![Mobile Wireframe](/documentation/wireframes/phone%20wireframe.png)
+
+![Tablet Wireframe](/documentation/wireframes/ip%20wirefram.png)
+
+![Desktop Wireframe](/documentation/wireframes/desktop%20wireframe.png)
 ### Agile Methodology
-Explain your agile approach to your project and insert screenshoots of your Kanban board (itterations, user stories, tasks,acceptance criteria, labels, story points...)
+I work in 2 weeks sprints, where I first focused on the project planning and setting up my repo and project board.
+Below you will find the steps I took to complete these sprints.
+ 
+Sprint1:
+- Project purpose & idea
+- Brainstorm - MVP features & MVP Scope (MoSCoW -Prioritisation)
+- User Stories - GitHub Projects Board
+- Data Model
+- User Flow Diagram
+- Wireframes
+- Design
+- Assets
+- Review process
+- Repo setup
+- README Structure
+- Add wireframes
+- Add Design plan
+
+- Review Projects Board
+- Code project
+- Deploy project
+- Update README
+- Review Projects Board
+- Code project
+- Review Projects Board
+- Code project
+- Update README
+- Run existing code through validator ahead of Code Review
+- Remove unused code
+- Ensure code comments are added to important sections/credit external resources
+
+Sprint2:
+- Review Projects Board
+- Code project
+- Update README
+- Review Projects Board
+- Code project
+
+Sprint3:
+- Review Projects Board 
+- Code project 
+- Update README
+- Review Projects Board
+- Code project
+- Validate Code
+- Update README with finished Features
+- Final Project checks
+- Project Board Review
+- Code Review
+- README Review
+- Testing & README
+- Final README checks
+- Broken link checks
+- Commented out code check
+- Assessment Criteria Checklist
+
 ### Typography
-Explain font you've used for your project
+Roboto:
+https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap
+
+Lato:
+https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap
+
+Arial:
+Already Imported.
+
+Sans Serif:
+Already Imported.
+
 ### Colour Scheme
-Screenshoot of the colour scheme for your project
+[Colour Scheme](/documentation/wireframes/colorscheme.png)
 ### DataBase Diagram
-Image of the database diagram for your project, you can name your database models as well and how they are connected
+![DataBase Scheme](/documentation/wireframes/ERD.png)
 
 ## Features:
-Explain your features on the website,(navigation, pages, links, forms, input fields, CRUD....)
+1. Page Header
+"TeamTalk":
+
+The title "TeamTalk" is at the top in a bold orange font, making it stand out as the website's name or logo.
+The choice of orange shows warmth, positivity, and energy.
+
+Slogan/Description:
+
+The subheading describes "TeamTalk" as "A positive space free from negativity and judgment. Designed to foster meaningful connections and discussions."
+This text emphasizes the purpose and values of the platform: positivity, inclusivity, and interaction.
+"You are logged in as Dan":
+
+Positioned in the top-right corner, this text indicates the logged-in user ("Dan") for personalization and user awareness.
+
+2. Call-to-Action Buttons
+Two orange buttons are featured prominently:
+"View our posts!":
+Links to a page where users can explore posts shared on the platform.
+The button has rounded corners, bold white text, and a hover effect to make it clickable and engaging.
+
+"Explore All Categories":
+Website organizes content into categories for easy navigation, encouraging users to browse more broadly.
+
+3. Center Image
+Tree Illustration:
+A beautiful, multicolored tree image is centered in the design, featuring vibrant red, orange, and blue hues. This symbolize growth, diversity, creativity, and unity.
+The image adds a visually pleasing artistic element, giving the page a modern and friendly feel.
+
+4. Blended Background
+The page features a blended background:
+It changes from orange at the edges to white in the center.
+This blend creates a warm and inviting visual effect, drawing the viewer's attention toward the content in the center of the page.
+
+5. Clean Layout and Responsive Design
+Alignment and Spacing:
+The page uses a clean, centered layout with ample spacing, ensuring the content is easy to read and navigate.
+Responsiveness:
+The design appears optimized for various screen sizes. The centered layout and evenly spaced elements suggest compatibility with both desktop and mobile devices.
+
+6. Purpose
+The overall design is a community platform or blog:
+The focus on "positive space," posts, and categories indicates an emphasis user interaction through content sharing and discussions.
+This design effectively combines functionality, aesthetics and user engagement principles.
+
 ### Navigation
+(navigation ![Navbar](/documentation/features/Navbar.png)
+, pages, links, forms, input fields, CRUD....)
 ### Footer
+![Footer](/documentation/features/Footer.png)
 ### Home-page
+![Home](/documentation/features/Homepage.png)
 ### CRUD
+![CREATE](/documentation/features/CREATE.png)
+![READ](/documentation/features/CRUD.png)
+![UPDATE](/documentation/features/Edit.png)
+![DELETE](/documentation/features/delete.png)
+
 ### Authentication-Authorisation 
+![Authentication](/documentation/features/Register.png)
+![Authentication](/documentation/features/SignOut.png)
+![Authentication](/documentation/features/CommentRecuierment.png)
+![Authentication](/documentation/features/ConformationSignOut.png)
+![Authentication](/documentation/features/RequiermentCat.png)
 ## Technologies Used
-List of technologies used for your project
+- Django
+- Python
+- HTML
+- CSS
+- JavaScript
+- PostgreSQL
+- Git
+- GitHub
+- Balsamiq/Figma (for wireframing)
+- Figma (for design mockups)
+- Chatgbt: No Code was taken from AI
 ## Testing
-Important part of your README!!!
+[Research & testing images](/documentation/research/research_testing_img.md).
 ### Google's Lighthouse Performance
 Screenshots of certain pages and scores (mobile and desktop)
 ### Browser Compatibility
