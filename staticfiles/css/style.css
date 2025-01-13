@@ -2,7 +2,7 @@
 
 
 body {
-    background-image: url(/static/images/indexpic.jpg);
+    background-image: url(/static/images/TotFundal2.jpg); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat; 
@@ -21,14 +21,27 @@ header, footer {
     color: white;
     text-align: center;
     padding: 1rem;
+    font-family: 'Lato', sans-serif;
 }
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#signup_form > ul {
+    list-style-type: none;
+}
+
+
 main {
     padding: 2rem;
     text-align: center;
 }
 h1, h2 {
     margin: 0.5rem 0;
-    font-family: Roboto;
+    font-family: "Roboto";
 }
 
 .roboto-thin {
@@ -45,4 +58,82 @@ h1, h2 {
     h1 {
         font-size: 1.5rem;
     }
+}
+
+/* General styling for the site */
+body {
+    font-family: Arial, sans-serif;
+}
+
+header, footer {
+    text-align: center;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+}
+
+h1, h2 {
+    color: orange;
+    margin-bottom: 20px;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid orange;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    background: linear-gradient(to bottom, orange, white);
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.post-link {
+    text-decoration: none;
+    color: orange;
+    font-weight: bold;
+}
+
+.pagination .page-link {
+    color: orange;
+    text-decoration: none;
+}
+
+/* Additional classes for specific elements */
+.image-container {
+    position: relative;
+}
+
+.image-flash {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(255, 165, 0, 0.7); /* semi-transparent orange */
+    color: white;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+.author {
+    font-weight: bold;
+}
+
+.card-image-top {
+ width: 200px;
+ height: 200px;
 }
