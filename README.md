@@ -29,12 +29,24 @@ TeamTalk is a dynamic blog platform where users can engage with posts and share 
 
 Whether you're an enthusiast seeking like-minded individuals or simply looking to explore new topics and make new friends, TeamTalk has something for everyone.
 
-Visit the live site here: *AICI E UN LINK*
+Visit the live site here: [TeamTalk](https://django-blog-with-testimonials-8fd6458dc383.herokuapp.com/)
+
 
 TeamTalk Blog was designed to cater to a diverse audience, offering a space for light and enjoyable content. Our aim is to evoke warmth and relaxation through the use of inviting colors and easy-to-read fonts. The design is intentionally clean and minimal, ensuring users can focus on the content and navigate the site effortlessly.
 
 ### User Stories
-Write your user stories in this section
+[Issue 1](https://github.com/YazdanTaheri/teamtalk-blog/issues/4)
+[Issue 2](https://github.com/YazdanTaheri/teamtalk-blog/issues/5)
+[Issue 3](https://github.com/YazdanTaheri/teamtalk-blog/issues/7)
+[Issue 4](https://github.com/YazdanTaheri/teamtalk-blog/issues/9)
+[Issue 5](https://github.com/YazdanTaheri/teamtalk-blog/issues/6)
+[Issue 6](https://github.com/YazdanTaheri/teamtalk-blog/issues/8)
+[Issue 7](https://github.com/YazdanTaheri/django-project/issues/17)
+[Issue 8](https://github.com/YazdanTaheri/django-project/issues/10)
+[Issue 9](https://github.com/YazdanTaheri/django-project/issues/18)
+[Issue 10](https://github.com/YazdanTaheri/django-project/issues/16)
+[Issue 11](https://github.com/YazdanTaheri/django-project/issues/13)
+[Issue 12](https://github.com/YazdanTaheri/teamtalk-blog/issues/10)
 ### Wireframes
 ![Mobile Wireframe](/documentation/wireframes/phone%20wireframe.png)
 
@@ -193,7 +205,44 @@ This design effectively combines functionality, aesthetics and user engagement p
 - Figma (for design mockups)
 - Chatgbt: No Code was taken from AI
 ## Testing
+Coding Standards
+Adherence to coding standards and best practices will be maintained throughout the project.
+This includes:
+- Writing clean, well-documented code.
+- Following PEP 8 guidelines for Python code style.
+- Using meaningful variable and function names.
+- Implementing proper indentation and spacing.
+- Ensuring cross-platform compatibility.
+- Manual testing is conducted throughout the development process.
+- Testing focuses on functionality, usability, and responsiveness.
 [Research & testing images](/documentation/research/research_testing_img.md).
+
+## Manual Testing user stories
+User Story |  Test | Pass
+--- | --- | :---:
+As a site visitor, I want a responsive design so that I can browse the site easily on any device.| I used a responsive div container. | &check;
+[Home Page](/documentation/features/banner.jpg).
+As a developer, I want to deploy the application to a cloud platform so that users can access it online.| Verify successful deployment to the cloud platform by accessing the site URL. | &check;
+[Deployment page](/documentation/features/deploy.png).
+As a site visitor, I want to view a list of blog posts so that I can read content on various topics.| Check if a list of blog posts is displayed on the blog page. | &check;
+[Blog Page](/documentation/features/blog.png).
+As a site visitor, I want to register an account so that I can interact with the blog and testimonial features.| Test account registration process and confirm user is redirected to a dashboard. | &check;
+[Register Page](/documentation/features/Register.png).
+As a developer, I want to implement Django models for blog posts and testimonials so that data is stored and managed efficiently.| Test the creation, storage, and retrieval of blog posts and testimonials in the database. | &check;
+[Admin Page](/documentation/features/Admin.png).
+I can click on the About link so that I can read about the site.| Verify the About link redirects to the About page with relevant content. | &check;
+[About Page](/documentation/features/About.png).
+As a Site User / Admin, I can view comments on an individual post so that I can read the conversation.| Test if comments appear under the corresponding blog post. | &check;
+[Blog comment Page](/documentation/features/postcomment.png).
+As a Site Admin, I can create or update the About page content so that it is available on the site.| Test the admin panel functionality to create or edit About page content. | &check;
+[Admin About Page](/documentation/features/AdminAbout.png).
+As a Site Admin, I can approve or disapprove comments so that I can filter out objectionable comments.| Test the approve/disapprove feature in the admin panel and confirm the status reflects correctly on the site. | &check;
+[Admin Comment Page](/documentation/features/admincomment.png).
+As a site user, I can create, edit, and delete categories so that I can connect with other users on specific topics.| Test category creation, editing, and deletion in the user interface and confirm updates are reflected site-wide. | &check;
+[Admin Categories Page](/documentation/features/CategoriesAdmin.png).
+As a site user, I can modify or delete my comment on a post so that I can be involved in the conversation.| Test the ability to edit or delete user comments on posts and verify changes are updated in real-time. | &check;
+[Comment CRUD Page](/documentation/features/postcomment.png).
+
 ### Google's Lighthouse Performance
 Screenshots of certain pages and scores (mobile and desktop)
 ### Browser Compatibility
