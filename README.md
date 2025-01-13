@@ -243,29 +243,30 @@ As a site user, I can create, edit, and delete categories so that I can connect 
 As a site user, I can modify or delete my comment on a post so that I can be involved in the conversation.| Test the ability to edit or delete user comments on posts and verify changes are updated in real-time. | &check;
 [Comment CRUD Page](/documentation/features/postcomment.png).
 
-### Google's Lighthouse Performance
-Screenshots of certain pages and scores (mobile and desktop)
-### Browser Compatibility
-Check compatability with different browsers
-### Responsiveness
-Screenshots of the responsivness, pick few devices
-### Code Validation
-Validate your code HTML, CSS, JS & Python (all pages/files need to be validated!!!), display screenshots
-### Manual Testing user stories
-Test all your user stories, you an create table 
-User Story |  Test | Pass
---- | --- | :---:
-paste here you user story | what is visible to the user and what action they should perform | &check;
-attach screenshot
 ### Manual Testing features
-Test all your features, you can use the same approach 
-| Feature | Action | Status | 
+| Feature | Action | Status |
 |:-------:|:--------| :--------|
-| description | user steps | &check; |
-attach screenshot
-
+| Sign Up | When asked to sign in there is a link above to sign up. | &check; |
+[Register Page](/documentation/testing/Register.png).
+| Sign In | User clicks to sign in there is a link above to sign in. | &check; |
+[Sign In Page](/documentation/testing/Sign%20in.png).
+| Sign Out | User clicks to sign out there is a link above to sign out. | &check; |
+[Sign Out Page](/documentation/testing/Sign%20out.png).
+| Category | When user clicks the view category button it shows a list of categories and the add new category button | &check; |
+[Category Page](/documentation/testing/Category%20added.png).
+| Category Edit | When asked to sign in there is a link above to sign up. | &check; |
+[Category Edit Page](/documentation/testing/Category%20updated.png).
+| Category Delete | When asked to sign in there is a link above to sign up. | &check; |
+[Category Delete Page](/documentation/testing/Category%20delete.png).
+### Google's Lighthouse Performance
+![Performance Mobile](/documentation/testing/Performance%20mobile.png).
+![Performance Desktop](/documentation/testing/Performance%20desktop.png).
+### Responsiveness
+![Responsiveness](/documentation/features/banner.jpg).
+### Code Validation
+[Research Document](/documentation/research/research_testing_img.md).
 ## Bugs
-List of bugs and how did you fix them
+1. The "Conformation module" for deleteing a comment and the one from deleting a category are not the same.
 
 ## Deployment
 This website is deployed to Heroku from a GitHub repository, the following steps were taken:
@@ -274,7 +275,6 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - First make sure you are signed into [Github](https://github.com/) and go to the code institutes template, which can be found [here](https://github.com/Code-Institute-Org/gitpod-full-template).
 - Then click on **use this template** and select **Create a new repository** from the drop-down. Enter the name for the repository and click **Create repository from template**.
 - Once the repository was created, I clicked the green **gitpod** button to create a workspace in gitpod so that I could write the code for the site.
-
 #### Creating an app on Heroku
 - After creating the repository on GitHub, head over to [heroku](https://www.heroku.com/) and sign in.
 - On the home page, click **New** and **Create new app** from the drop down.
@@ -295,4 +295,12 @@ This website is deployed to Heroku from a GitHub repository, the following steps
 - Once it has been connected scroll down to the **Manual Deploy** and click **Deploy branch** when it has deployed you will see a **view app** button below and this will bring you to your newly deployed app.
 - Please note that when deploying manually you will have to deploy after each change you make to your repository.
 ## Credits
-List of used resources for your website (text, images, snippets of code, projects....)
+- Vasilica Pavaloi
+- Marko Tot
+- Dean Crystal
+- John Rearden
+- Mark Briscoe
+- Mathew Edwards
+## License
+- Code Institute
+- Balsamic
